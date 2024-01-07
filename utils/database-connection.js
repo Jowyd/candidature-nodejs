@@ -1,7 +1,15 @@
 const mysql = require('mysql2');
+dotenv = require('dotenv');
 
-const connection = mysql.createConnection({host: 'localhost', database: 'recrutement', user: 'root', password: 'root'});
+const connection = mysql.createConnection({ host: process.env.DB_HOST, user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: process.env.DB_DATABASE });
 
+const pool = mysql.createPool({ host: process.env.DB_HOST, user: process.env.DB_USER, password: process.env.DB_PASSWORD, database: process.env.DB_DATABASE,     multipleStatements: true,
+    charset: "utf8mb4_unicode_ci"});
+
+/**
+ * Authenticates the database connection.
+ * @returns {Promise<void>} A promise that resolves when the connection is authenticated.
+ */
 function authenticate() {
     return new Promise((resolve, reject) => {
         connection.connect((err) => {

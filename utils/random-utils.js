@@ -1,16 +1,21 @@
-function getRandomString(a = 8) {
-    const b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    let c = '';
-    for (let i = 0; i < a; i++) {
-        c += b.charAt(Math.floor(Math.random() * b.length));
+function getRandomString(length = 8) {
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += caracteres.charAt(Math.floor(Math.random() * caracteres.length));
     }
-    return c;
+    return result;
 }
 
-function getRandomInt(a, b) {
-    a = Math.ceil(a);
-    b = Math.floor(b);
-    return Math.floor(Math.random() * (b - a)) + a;
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
 }
 
-module.exports = {getRandomString, getRandomInt};
+function isValidEmail(email) {
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+      return emailPattern.test(email);
+    }
+
+module.exports = {getRandomString, getRandomInt, isValidEmail};

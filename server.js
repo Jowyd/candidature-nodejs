@@ -13,11 +13,9 @@ const app = express();
 
 // Parsers for POST data
 app.use(bodyParser.json({
-    limit: '500mb'
 }));
 app.use(bodyParser.urlencoded({
     extended: false,
-    limit: '500mb'
 }));
 
 // Set our API routes
@@ -27,8 +25,8 @@ app.use('/api', api);
 /**
  * Get port from environment and store in Express.
  */
-const port = '8080';
-app.set('port', port);
+const port = process.env.PORT ?? '8080';
+app.set('port', port );
 
 /**
  * Create HTTP server.
