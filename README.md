@@ -17,7 +17,7 @@ Toutes les routes concernant les chantiers sont protégées, et demandes un toke
 
 ### Aides
 
-Afin de vous aider dans votre entreprise, vous trouverez ci-dessous un tableau avec les fichiers et le nombres de remarques que nous avons détérminés pour le barème.
+Afin de vous aider dans votre entreprise, vous trouverez ci-dessous un tableau avec les fichiers et le nombres de remarques que nous avons détérminis pour le barème.
 
 N.B. cette liste est non exhaustive, n'hésitez donc pas faire du zèle !
 
@@ -28,7 +28,7 @@ N.B. cette liste est non exhaustive, n'hésitez donc pas faire du zèle !
 | routes/chantier.js     | 4                   |
 | helpers/user/js        | 3                   |
 | token-utils.js         | 3                   |
-| random-utils.js        | 1                   |V
+| random-utils.js        | 1                   |
 | index.js               | 5                   |
-| db.sql                 | 5                   |V
-| Générales              | 2                   |V
+| db.sql                 | 5                   |
+| Générales              | 2                   |
