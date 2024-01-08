@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const {deleteNullValues} = require("./json-utils");
+const { PersonnalError } = require('./personnal-error');
 
 const connectedUser = (req) => {
     const authorization = req.headers.authorization;
@@ -10,10 +11,16 @@ const extractToken = (token) => {
     return jwt.decode(token);
 };
 
+/**
+ * Verifies and extracts the content from a JWT token.
+ * @param {string} token - The JWT token to verify and extract.
+ * @returns {object} - The content extracted from the token.
+ * @throws {PersonnalError} - If the token is invalid.
+ */
 const verifyAndExtractToken = (token) => {
     return jwt.verify(token, process.env.SECRET_JWT, (err, content) => {
         if (err) {
-            return null;
+            throw new PersonnalError('Invalid token', err);
         }
         return content;
     });
@@ -25,7 +32,7 @@ const createToken = (user) => {
         user,
         process.env.SECRET_JWT,
         {
-            expiresIn: 60 * 60 * 24 * 7 * 365,
+            expiresIn: 60 * 60 ,
             algorithm: 'HS256'
         }
     );
